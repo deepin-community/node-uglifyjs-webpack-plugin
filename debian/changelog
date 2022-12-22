@@ -1,0 +1,118 @@
+node-uglifyjs-webpack-plugin (1.3.0-9) unstable; urgency=medium
+
+  * Team upload
+  * Source-only upload
+
+ -- Xavier Guimard <yadd@debian.org>  Fri, 20 Nov 2020 05:56:14 +0100
+
+node-uglifyjs-webpack-plugin (1.3.0-8) unstable; urgency=medium
+
+  * Team upload
+  * Back to unstable after successful test
+
+ -- Xavier Guimard <yadd@debian.org>  Fri, 20 Nov 2020 05:55:55 +0100
+
+node-uglifyjs-webpack-plugin (1.3.0-7) experimental; urgency=medium
+
+  * Team upload
+
+  [ lintian-brush ]
+  * Trim trailing whitespace.
+  * Set upstream metadata fields: Bug-Submit.
+  * Remove obsolete fields Contact, Name from debian/upstream/metadata
+    (already present in machine-readable debian/copyright).
+
+  [ Xavier Guimard ]
+  * Bump debhelper compatibility level to 13
+  * Declare compliance with policy 4.5.1
+  * Add "Rules-Requires-Root: no"
+  * Use dh-sequence-nodejs
+  * Use pkg-js-autopkgtest minimal test
+  * Add fix for node-schema-utils ≥ 3
+
+ -- Xavier Guimard <yadd@debian.org>  Wed, 18 Nov 2020 09:55:18 +0100
+
+node-uglifyjs-webpack-plugin (1.3.0-6) unstable; urgency=medium
+
+  * Build with Babel 7
+  * Bump Standards-Version to 4.5.0 (no changes needed)
+
+ -- Pirate Praveen <praveen@debian.org>  Wed, 06 May 2020 17:59:39 +0530
+
+node-uglifyjs-webpack-plugin (1.3.0-5) unstable; urgency=medium
+
+  * Reupload to unstable
+
+ -- Pirate Praveen <praveen@debian.org>  Sun, 04 Aug 2019 10:01:27 +0000
+
+node-uglifyjs-webpack-plugin (1.3.0-4) experimental; urgency=medium
+
+  * Update description to clarify we are using terser instead of uglify-es
+  * Set minimum version of pkg-js-tools to 0.8.6 (Closes: #933488)
+
+ -- Pirate Praveen <praveen@debian.org>  Wed, 31 Jul 2019 08:13:33 +0000
+
+node-uglifyjs-webpack-plugin (1.3.0-3) experimental; urgency=medium
+
+  * Fix import from terser (this makes production mode work in webpack 4)
+
+ -- Pirate Praveen <praveen@debian.org>  Mon, 29 Jul 2019 18:27:12 +0000
+
+node-uglifyjs-webpack-plugin (1.3.0-2) experimental; urgency=medium
+
+  * Change uglifyOptions to terserOptions
+
+ -- Pirate Praveen <praveen@debian.org>  Mon, 29 Jul 2019 10:51:47 +0200
+
+node-uglifyjs-webpack-plugin (1.3.0-1) experimental; urgency=medium
+
+  [ Nilesh ]
+  * fix dependency
+  * fix VCS URLs
+
+  [ Pirate Praveen ]
+  * New upstream version 1.3.0
+  * Update standards version to 4.4.0 (no changes)
+  * Bump debhelper compat to 12
+  * Update dependencies
+  * Remove lib from install file
+  * Fix babeljs command to install options.json
+  * Add worker-farm as a component
+  * Import Debian changes 1.3.0-1
+  * Switch to pkg-js-tools
+  * Add serialize-javascript as component
+  * Import Debian changes 1.3.0-1
+  * Switch to terser from uglify-es
+  * Drop debian/install and let pkg-js-tool automate it
+  * Add webpack as build dependency
+  * Switch to node-terser instead of node-uglify-js
+  * Add debian/install again as pkg-js-tools can't automate this yet
+
+  [ Xavier Guimard ]
+  * Add upstream/metadata
+
+ -- Pirate Praveen <praveen@debian.org>  Sun, 28 Jul 2019 23:37:56 +0200
+
+node-uglifyjs-webpack-plugin (0.4.6-4) unstable; urgency=medium
+
+  * Add webpack as a runtime dependency
+
+ -- Pirate Praveen <praveen@debian.org>  Sun, 08 Oct 2017 14:22:18 +0530
+
+node-uglifyjs-webpack-plugin (0.4.6-3) unstable; urgency=medium
+
+  * Really move to main
+
+ -- Pirate Praveen <praveen@debian.org>  Sun, 08 Oct 2017 13:55:54 +0530
+
+node-uglifyjs-webpack-plugin (0.4.6-2) unstable; urgency=medium
+
+  * Move to main (babel is in main now)
+
+ -- Pirate Praveen <praveen@debian.org>  Wed, 27 Sep 2017 14:57:28 +0530
+
+node-uglifyjs-webpack-plugin (0.4.6-1) unstable; urgency=low
+
+  * Initial release (Closes: #875769)
+
+ -- Pirate Praveen <praveen@debian.org>  Thu, 14 Sep 2017 17:54:22 +0530

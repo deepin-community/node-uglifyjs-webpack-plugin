@@ -1,0 +1,50 @@
+Source: node-uglifyjs-webpack-plugin
+Section: javascript
+Priority: optional
+Testsuite: autopkgtest-pkg-nodejs
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Uploaders: Pirate Praveen <praveen@debian.org>
+Build-Depends:
+ debhelper-compat (= 13)
+ , dh-sequence-nodejs
+ , node-babel7
+ , node-cacache (>= 10.0.4~)
+ , node-find-cache-dir (>= 1.0~)
+#, node-serialize-javascript (>= 1.4~)
+ , node-schema-utils (>= 3.0~)
+ , node-source-map (>= 0.6.1~)
+ , node-terser
+ , node-webpack-sources (>= 1.1~)
+#, node-worker-farm (>= 1.5.2~)
+ , webpack
+Standards-Version: 4.5.1
+Homepage: https://github.com/webpack-contrib/uglifyjs-webpack-plugin
+Vcs-Git: https://salsa.debian.org/js-team/node-uglifyjs-webpack-plugin.git
+Vcs-Browser: https://salsa.debian.org/js-team/node-uglifyjs-webpack-plugin
+Rules-Requires-Root: no
+
+Package: node-uglifyjs-webpack-plugin
+Architecture: all
+Depends:
+ ${misc:Depends}
+ , nodejs
+ , node-cacache (>= 10.0.4~)
+ , node-find-cache-dir (>= 1.0~)
+#, node-serialize-javascript (>= 1.4~)
+ , node-schema-utils (>= 3.0~)
+ , node-source-map (>= 0.6.1~)
+ , node-terser
+ , node-webpack-sources (>= 1.1~)
+#, node-worker-farm (>= 1.5.2~)
+ , webpack
+Description: UglifyJS v3 plugin for webpack
+ This plugin uses UglifyJS v3 API (uglify-es) to minify your JavaScript.
+ .
+ Note that webpack contains the same plugin under
+ webpack.optimize.UglifyJsPlugin. This is a standalone version for those that
+ want to control the version of UglifyJS. The documentation is valid apart from
+ the installation instructions in that case.
+ .
+ uglify-es is repalced with terser in Debian (uglify-es is unmaintained).
+ .
+ Node.js is an event-based server-side JavaScript engine.

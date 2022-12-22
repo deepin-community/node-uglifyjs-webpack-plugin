@@ -1,0 +1,3 @@
+uglify-es-to-terser.patch
+use-babel7.patch
+fix-for-schema-utils-3.patch

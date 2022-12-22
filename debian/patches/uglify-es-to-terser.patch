@@ -1,0 +1,105 @@
+uglify-es is unmaintained, use terser instead.
+
+--- a/src/index.js
++++ b/src/index.js
+@@ -19,7 +19,7 @@
+ 
+     const {
+       minify,
+-      uglifyOptions = {},
++      terserOptions = {},
+       test = /\.js(\?.*)?$/i,
+       warningsFilter = () => true,
+       extractComments = false,
+@@ -42,14 +42,14 @@
+       include,
+       exclude,
+       minify,
+-      uglifyOptions: {
++      terserOptions: {
+         compress: {
+           inline: 1,
+         },
+         output: {
+           comments: extractComments ? false : /^\**!|@preserve|@license|@cc_on/,
+         },
+-        ...uglifyOptions,
++        ...terserOptions,
+       },
+     };
+   }
+@@ -187,14 +187,14 @@
+               inputSourceMap,
+               commentsFile,
+               extractComments: this.options.extractComments,
+-              uglifyOptions: this.options.uglifyOptions,
++              terserOptions: this.options.uglifyOptions,
+               minify: this.options.minify,
+             };
+ 
+             if (this.options.cache) {
+               const defaultCacheKeys = {
+                 // eslint-disable-next-line global-require
+-                'uglify-es': require('uglify-es/package.json').version,
++                'uglify-es': require('terser/package.json').version,
+                 // eslint-disable-next-line global-require
+                 'uglifyjs-webpack-plugin': require('../package.json').version,
+                 'uglifyjs-webpack-plugin-options': this.options,
+--- a/src/uglify/minify.js
++++ b/src/uglify/minify.js
+@@ -1,7 +1,7 @@
+ /* eslint-disable
+   arrow-body-style
+ */
+-import uglify from 'uglify-es';
++import { minify as terserMinify } from 'terser';
+ 
+ const buildUglifyOptions = ({
+   ecma,
+@@ -42,9 +42,9 @@
+   safari10,
+ });
+ 
+-const buildComments = (options, uglifyOptions, extractedComments) => {
++const buildComments = (options, terserOptions, extractedComments) => {
+   const condition = {};
+-  const commentsOpts = uglifyOptions.output.comments;
++  const commentsOpts = terserOptions.output.comments;
+ 
+   // /^\**!|@preserve|@license|@cc_on/
+   if (typeof options.extractComments === 'boolean') {
+@@ -134,11 +134,11 @@
+   }
+ 
+   // Copy uglify options
+-  const uglifyOptions = buildUglifyOptions(options.uglifyOptions);
++  const terserOptions = buildUglifyOptions(options.uglifyOptions);
+ 
+   // Add source map data
+   if (inputSourceMap) {
+-    uglifyOptions.sourceMap = {
++    terserOptions.sourceMap = {
+       content: inputSourceMap,
+     };
+   }
+@@ -146,16 +146,16 @@
+   const extractedComments = [];
+ 
+   if (extractComments) {
+-    uglifyOptions.output.comments = buildComments(
++    terserOptions.output.comments = buildComments(
+       options,
+-      uglifyOptions,
++      terserOptions,
+       extractedComments,
+     );
+   }
+ 
+-  const { error, map, code, warnings } = uglify.minify(
++  const { error, map, code, warnings } = terserMinify(
+     { [file]: input },
+-    uglifyOptions,
++    terserOptions,
+   );
+ 
+   return { error, map, code, warnings, extractedComments };
